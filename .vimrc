@@ -25,6 +25,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'elzr/vim-json'
 Plugin 'rking/ag.vim'
+Plugin 'isRuslan/vim-es6'
 
 Plugin 'matze/vim-move'
 vmap <C-k> <Plug>MoveBlockUp
@@ -47,7 +48,7 @@ let g:EasyMotion_leader_key = '<Leader>e'
 map <Space><Space> <Plug>(easymotion-bd-w)
 " nmap s <Plug>(easymotion-s2)
 " nmap t <Plug>(easymotion-t2)
-Plugin 'jelera/vim-javascript-syntax'
+
 Plugin 'Yggdroot/indentLine'
 let g:indentLine_color_term = 239
 " Plugin 'nathanaelkane/vim-indent-guides'
