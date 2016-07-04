@@ -102,13 +102,13 @@ map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
 
 " Easy window navigation
-nnoremap <C-h> <C-W>h
-nnoremap <C-j> <C-W>j
-nnoremap <C-k> <C-W>k
-nnoremap <C-l> <C-W>l
-if has('nvim')  " Required for neovim to handle c-h
-  nmap <BS> <C-W>h
-endif
+" nnoremap <C-h> <C-W>h
+" nnoremap <C-j> <C-W>j
+" nnoremap <C-k> <C-W>k
+" nnoremap <C-l> <C-W>l
+" if has('nvim')  " Required for neovim to handle c-h
+"   nmap <BS> <C-W>h
+" endif
 
 " Remap VIM 0 to first non-blank character
 " map 0 ^
