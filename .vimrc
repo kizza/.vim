@@ -66,6 +66,19 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 autocmd Filetype snippets setlocal expandtab tabstop=4 shiftwidth=4
 
+" Syntastic
+" Plugin 'scrooloose/syntastic'
+" let g:syntastic_javascript_checkers = ['standard']
+
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+
 " Themes
 Plugin 'dfxyz/CandyPaper.vim'
 
