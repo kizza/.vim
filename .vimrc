@@ -60,6 +60,12 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=black ctermbg=232
 let g:indent_guides_enable_on_vim_startup = 1
 " let g:indent_guides_guide_size = 1 k
 
+" SnipMate
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+autocmd Filetype snippets setlocal expandtab tabstop=4 shiftwidth=4
+
 " Themes
 Plugin 'dfxyz/CandyPaper.vim'
 
