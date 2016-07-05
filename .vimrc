@@ -43,19 +43,21 @@ let g:gitgutter_sign_added = '⇒'
 let g:gitgutter_sign_modified = '⇔'
 let g:gitgutter_sign_removed = '⇐'
 let g:gitgutter_sign_modified_removed = '⇎'
+
 Plugin 'Lokaltog/vim-easymotion'
 let g:EasyMotion_leader_key = '<Leader>e'
 map <Space><Space> <Plug>(easymotion-bd-w)
 " nmap s <Plug>(easymotion-s2)
 " nmap t <Plug>(easymotion-t2)
 
-Plugin 'Yggdroot/indentLine'
-let g:indentLine_color_term = 239
-" Plugin 'nathanaelkane/vim-indent-guides'
-" let g:indent_guides_auto_colors = 0
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=darkgrey ctermbg=236
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=234
-" let g:indent_guides_enable_on_vim_startup = 1
+" Plugin 'Yggdroot/indentLine'
+" let g:indentLine_color_term = 239
+
+Plugin 'nathanaelkane/vim-indent-guides'
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=darkgrey ctermbg=233
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=black ctermbg=232
+let g:indent_guides_enable_on_vim_startup = 1
 " let g:indent_guides_guide_size = 1 k
 
 " Themes
