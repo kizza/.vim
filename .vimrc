@@ -58,9 +58,7 @@ map <Space><Space> <Plug>(easymotion-bd-w)
 " nmap s <Plug>(easymotion-s2)
 " nmap t <Plug>(easymotion-t2)
 
-" Plugin 'Yggdroot/indentLine'
-" let g:indentLine_color_term = 239
-
+" Visually display indents
 Plugin 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=darkgrey ctermbg=233
