@@ -86,7 +86,7 @@ autocmd Filetype snippets setlocal expandtab tabstop=4 shiftwidth=4
 " let g:syntastic_check_on_wq = 0
 
 " Themes
-Plugin 'dfxyz/CandyPaper.vim'
+Plugin 'morhetz/gruvbox'
 
 " Auto reload vimrc
 " autocmd! bufwritepost .vimrc source %
@@ -99,7 +99,10 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 
-colorscheme CandyPaper
+" Set theme
+colorscheme gruvbox
+set background=dark
+let g:indent_guides_auto_colors = 1
 
 " using Source Code Pro
 " set anti enc=utf-8
@@ -218,5 +221,12 @@ set undofile                " Save undo's after file closes
 set undodir=$HOME/.vim/undo " Where to save histories
 set undolevels=1000         " How many undos
 set undoreload=10000        " Number of lines to save
+
+" Tweak theme
+hi Normal ctermbg=none
+hi javaScriptBraces cterm=none ctermbg=none ctermfg=darkcyan
+hi javaScriptParens cterm=none ctermbg=none ctermfg=darkcyan
+hi Operator cterm=none ctermbg=none ctermfg=cyan
+hi MatchParen cterm=none ctermbg=none ctermfg=darkmagenta
 
 runtime macros/matchit.vim
