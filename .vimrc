@@ -143,16 +143,11 @@ map <leader>tm :tabmove
 " Remap VIM 0 to first non-blank character
 " map 0 ^
 
-" nnoremap <S-e> :tabnew<CR>:NERDTree<CR>
-nnoremap <S-e> :NERDTree<CR>
+noremap <leader>n :NERDTree<cr>
 nnoremap <Leader-p> :CtrlP<CR>:
 
 "This unsets the "last search pattern" register by hitting return
-" nnoremap <CR> :noh<CR>
-" nnoremap ; :
 nnoremap <Leader-\> :e ~/.vimrc<CR>
-" Auto comlete on tab
-" inoremap <Tab> :<C-no>
 
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
