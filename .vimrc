@@ -18,10 +18,14 @@ let g:NERDTreeChDirMode       = 2
 let g:ctrlp_working_path_mode = 'rw'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
+
+" Airline
 Plugin 'bling/vim-airline'
-let g:airline_powerline_fonts = 1
-Plugin 'terryma/vim-multiple-cursors'
 Plugin 'vim-airline/vim-airline-themes'
+let g:airline_powerline_fonts = 1
+let g:airline_theme='powerlineish'
+
+Plugin 'terryma/vim-multiple-cursors'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'elzr/vim-json'
 Plugin 'rking/ag.vim'
