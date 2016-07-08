@@ -28,6 +28,10 @@ Plugin 'vim-airline/vim-airline-themes'
 let g:airline_powerline_fonts = 1
 let g:airline_theme='powerlineish'
 
+" Ctags
+Plugin 'ludovicchabant/vim-gutentags'
+let g:gutentags_cache_dir = '/tmp'
+
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'rking/ag.vim'
