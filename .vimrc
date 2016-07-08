@@ -13,9 +13,12 @@ let g:mapleader = ","
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+
+" NERDTree explorer
 Plugin 'scrooloose/nerdtree'
 let g:NERDTreeChDirMode       = 2
 let g:ctrlp_working_path_mode = 'rw'
+
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 
@@ -35,12 +38,14 @@ Plugin 'isRuslan/vim-es6'
 Plugin 'elzr/vim-json'
 " Plugin 'pangloss/vim-javascript'
 
+" Easily move blocks of text
 Plugin 'matze/vim-move'
 vmap <C-k> <Plug>MoveBlockUp
 vmap <C-j> <Plug>MoveBlockDown
 nmap <A-j> <Plug>MoveLineDown
 nmap <A-k> <Plug>MoveLineUp
 
+" Show git changes in gutter
 Plugin 'airblade/vim-gitgutter'
 " let g:move_map_keys = 0
 " let g:gitgutter_sign_column_always = 2
@@ -52,6 +57,7 @@ let g:gitgutter_sign_modified = '⇔'
 let g:gitgutter_sign_removed = '⇐'
 let g:gitgutter_sign_modified_removed = '⇎'
 
+" Move around super easily
 Plugin 'Lokaltog/vim-easymotion'
 let g:EasyMotion_leader_key = '<Leader>e'
 map <Space><Space> <Plug>(easymotion-bd-w)
