@@ -27,9 +27,13 @@ let g:airline_theme='powerlineish'
 
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'elzr/vim-json'
 Plugin 'rking/ag.vim'
+Plugin 'vim-scripts/ReplaceWithRegister'
+
+" Js syntax
 Plugin 'isRuslan/vim-es6'
+Plugin 'elzr/vim-json'
+" Plugin 'pangloss/vim-javascript'
 
 Plugin 'matze/vim-move'
 vmap <C-k> <Plug>MoveBlockUp
