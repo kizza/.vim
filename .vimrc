@@ -236,5 +236,6 @@ hi javaScriptBraces cterm=none ctermbg=none ctermfg=darkcyan
 hi javaScriptParens cterm=none ctermbg=none ctermfg=darkcyan
 hi Operator cterm=none ctermbg=none ctermfg=cyan
 hi MatchParen cterm=none ctermbg=none ctermfg=darkmagenta
+hi CursorLine ctermbg=234
 
 runtime macros/matchit.vim
