@@ -156,6 +156,9 @@ map <leader>tm :tabmove
 noremap <leader>n :NERDTree<cr>
 nnoremap <Leader-p> :CtrlP<CR>:
 
+" Unhighligh search pattern
+nnoremap <silent> <C-l> :<C-u> nohlsearch <CR><C-l>
+
 "This unsets the "last search pattern" register by hitting return
 nnoremap <Leader-\> :e ~/.vimrc<CR>
 
