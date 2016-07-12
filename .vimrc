@@ -225,6 +225,10 @@ set autoread        " Reload file when edited externally
 set autoindent
 " set smartindent
 
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
 " Set tab colours
 hi TabLineFill ctermfg=Red ctermbg=238
 hi TabLine ctermfg=White ctermbg=235
