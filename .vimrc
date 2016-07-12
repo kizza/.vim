@@ -46,6 +46,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-lastpat'
 
+" Allow motions on similar indents of text
+Plugin 'kana/vim-textobj-indent'
+
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'rking/ag.vim'
