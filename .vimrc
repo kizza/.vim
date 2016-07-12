@@ -205,13 +205,6 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
-" Color column
-" let &colorcolumn=join(range(81,999),",")
-" highlight ColorColumn ctermbg=235 guibg=#2c2d27
-" let &colorcolumn="80,".join(range(120,999),",")
-highlight ColorColumn ctermbg=7
-call matchadd('ColorColumn', '\(\%80v\|\%100v\)', 100)  " Show +80 as coloured
-
 " Don't hide json quotes
 let g:vim_json_syntax_conceal = 0
 
@@ -255,5 +248,12 @@ hi javaScriptParens cterm=none ctermbg=none ctermfg=darkcyan
 hi Operator cterm=none ctermbg=none ctermfg=cyan
 hi MatchParen cterm=none ctermbg=none ctermfg=darkmagenta
 hi CursorLine ctermbg=234
+
+" Color column
+" let &colorcolumn=join(range(81,999),",")
+" highlight ColorColumn ctermbg=235 guibg=#2c2d27
+" let &colorcolumn="80,".join(range(120,999),",")
+highlight ColorColumn ctermbg=brown
+call matchadd('ColorColumn', '\(\%80v\|\%100v\)', 100)  " Show +80 as coloured
 
 runtime macros/matchit.vim
