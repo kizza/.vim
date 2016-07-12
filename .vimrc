@@ -146,7 +146,6 @@ set softtabstop=2             " 1 tab is 2 spaces
 set shiftwidth=2
 set foldlevelstart=99         " Expand all folds by default.
 set backspace=2
-set clipboard=unnamed
 " set encoding=utf-8
 
 " Useful mappings for managing tabs
