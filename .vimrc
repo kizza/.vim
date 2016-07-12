@@ -17,6 +17,7 @@ Plugin 'VundleVim/Vundle.vim'
 " NERDTree explorer
 Plugin 'scrooloose/nerdtree'
 let g:NERDTreeChDirMode       = 2
+let g:NERDTreeShowHidden      = 1
 let g:ctrlp_working_path_mode = 'rw'
 
 Plugin 'tpope/vim-surround'
