@@ -58,6 +58,7 @@ Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'isRuslan/vim-es6'
 Plugin 'elzr/vim-json'
 " Plugin 'pangloss/vim-javascript'
+autocmd FileType javascript setlocal makeprg=standard
 
 " Easily move blocks of text
 Plugin 'matze/vim-move'
