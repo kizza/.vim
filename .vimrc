@@ -38,6 +38,9 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
+" Git integration
+Plugin 'tpope/vim-fugitive'
+
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'rking/ag.vim'
