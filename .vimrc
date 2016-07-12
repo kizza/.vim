@@ -42,6 +42,10 @@ endif
 " Git integration
 Plugin 'tpope/vim-fugitive'
 
+" Allow search reuslts as text objects (eg. di/)
+Plugin 'kana/vim-textobj-user'
+Plugin 'kana/vim-textobj-lastpat'
+
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'rking/ag.vim'
