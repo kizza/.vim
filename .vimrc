@@ -32,6 +32,12 @@ let g:airline_theme='powerlineish'
 Plugin 'ludovicchabant/vim-gutentags'
 let g:gutentags_cache_dir = '/tmp'
 
+" Better searching
+Plugin 'mileszs/ack.vim'
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'rking/ag.vim'
