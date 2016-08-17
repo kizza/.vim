@@ -8,30 +8,51 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " Mappings
-let mapleader=","             " Set space mapleader
+let mapleader=","
 let g:mapleader = ","
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" NERDTree explorer
-Plugin 'scrooloose/nerdtree'
-let g:NERDTreeChDirMode       = 2
-let g:NERDTreeShowHidden      = 1
-let g:ctrlp_working_path_mode = 'rw'
-
+Plugin 'VundleVim/Vundle.vim' " let Vundle manage Vundle, required
+Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'rking/ag.vim'
+Plugin 'tpope/vim-sensible' " Be sensible
+Plugin 'sheerun/vim-polyglot' " Language packs
+Plugin 'vim-scripts/ReplaceWithRegister' " (eg. griw)
+Plugin 'kana/vim-textobj-user'
+Plugin 'kana/vim-textobj-lastpat' " Search reuslts as text objects (eg. di/)
+Plugin 'kana/vim-textobj-indent'  " Motions on similar indents of text (eg. <<ii, <<iI)
 
-" Airline
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-let g:airline_powerline_fonts = 1
-let g:airline_theme='powerlineish'
+" NERDTree
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+let g:NERDTreeChDirMode = 2
+let g:NERDTreeShowHidden = 1
+
+" CtrlP
+Plugin 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_working_path_mode = 'rw'
 
 " Ctags
 Plugin 'ludovicchabant/vim-gutentags'
 let g:gutentags_cache_dir = '/tmp'
+
+" Airline
+Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+let g:Powerline_symbols = 'fancy'
+let g:airline_powerline_fonts = 1
+let g:airline_theme='powerlineish'
+let g:airline#extensions#default#section_truncate_width = {
+      \  'b': 90,
+      \  'w': 150,
+      \  'x': 90,
+      \  'y': 130,
+      \  'z': 110,
+      \  'warning': 80,
+      \  'error': 80,
+      \ }
 
 " Better searching
 Plugin 'mileszs/ack.vim'
@@ -39,26 +60,16 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-" Git integration
-Plugin 'tpope/vim-fugitive'
-
-" Allow search reuslts as text objects (eg. di/)
-Plugin 'kana/vim-textobj-user'
-Plugin 'kana/vim-textobj-lastpat'
-
-" Allow motions on similar indents of text
-Plugin 'kana/vim-textobj-indent'
-
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'rking/ag.vim'
-Plugin 'vim-scripts/ReplaceWithRegister'
+" Tagbar for viewing file overview
+Plugin 'majutsushi/tagbar'
+noremap <leader>t :TagbarToggle<cr>
 
 " Js syntax
-Plugin 'isRuslan/vim-es6'
+" Plugin 'isRuslan/vim-es6'
 Plugin 'elzr/vim-json'
-" Plugin 'pangloss/vim-javascript'
-autocmd FileType javascript setlocal makeprg=standard
+Plugin 'pangloss/vim-javascript'
+" Plugin 'jelera/vim-javascript'
+" autocmd FileType javascript setlocal makeprg=standard
 
 " Easily move blocks of text
 Plugin 'matze/vim-move'
@@ -67,7 +78,7 @@ vmap <C-j> <Plug>MoveBlockDown
 nmap <A-j> <Plug>MoveLineDown
 nmap <A-k> <Plug>MoveLineUp
 
-" Show git changes in gutter
+" Gitgutter
 Plugin 'airblade/vim-gitgutter'
 " let g:move_map_keys = 0
 " let g:gitgutter_sign_column_always = 2
@@ -88,9 +99,9 @@ map <Space><Space> <Plug>(easymotion-bd-w)
 
 " Visually display indents
 Plugin 'nathanaelkane/vim-indent-guides'
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=darkgrey ctermbg=233
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=black ctermbg=232
+let g:indent_guides_auto_colors = 1
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=darkgrey ctermbg=233
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=black ctermbg=232
 let g:indent_guides_enable_on_vim_startup = 1
 " let g:indent_guides_guide_size = 1 k
 
@@ -100,37 +111,28 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 autocmd Filetype snippets setlocal expandtab tabstop=4 shiftwidth=4
 
-" Syntastic
-" Plugin 'scrooloose/syntastic'
-" let g:syntastic_javascript_checkers = ['standard']
+" Auto wordwrap with some file types
+au BufRead,BufNewFile *.md setlocal wrap
 
+" Syntastic
+Plugin 'scrooloose/syntastic'
+let g:syntastic_javascript_checkers = ['standard']
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
 
 " Themes
 Plugin 'morhetz/gruvbox'
-
-" Auto reload vimrc
-" autocmd! bufwritepost .vimrc source %
-" if has("autocmd")
-"  autocmd bufwritepost .vimrc source $MYVIMRC
-" endif
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'NLKNguyen/papercolor-theme'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-
-" Set theme
-colorscheme gruvbox
-set background=dark
-let g:indent_guides_auto_colors = 1
 
 " using Source Code Pro
 " set anti enc=utf-8
@@ -159,6 +161,9 @@ map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
 
+" Don't find these patterns
+set wildignore+=/node_modules/*,*/tmp/*,*.so,*.swp,*.zip
+
 " Easy window navigation
 " nnoremap <C-h> <C-W>h
 " nnoremap <C-j> <C-W>j
@@ -167,18 +172,6 @@ map <leader>tm :tabmove
 " if has('nvim')  " Required for neovim to handle c-h
 "   nmap <BS> <C-W>h
 " endif
-
-" Remap VIM 0 to first non-blank character
-" map 0 ^
-
-noremap <leader>n :NERDTree<cr>
-nnoremap <Leader-p> :CtrlP<CR>:
-
-" Unhighligh search pattern
-nnoremap <silent> <C-l> :<C-u> nohlsearch <CR><C-l>
-
-"This unsets the "last search pattern" register by hitting return
-nnoremap <Leader-\> :e ~/.vimrc<CR>
 
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
@@ -208,7 +201,22 @@ endif
 " Don't hide json quotes
 let g:vim_json_syntax_conceal = 0
 
+" Set theme
+colorscheme gruvbox
+set background=dark
+let g:gruvbox_italicize_comments = 1
+let g:gruvbox_contrast_dark = "hard"
+let g:indent_guides_auto_colors = 1
+" set t_Co=256
+" colorscheme PaperColor
+" set background=dark
+
+" colorscheme solarized
+" set background=light
+
 " Bindings
+noremap <leader>n :NERDTree<cr>
+nnoremap <Leader-p> :CtrlP<CR>:
 nnoremap <Leader>/ :noh<CR><ESC>|
 map <Leader>sw :w<Cr>
 nmap <leader>v :tabedit $MYVIMRC<CR>
@@ -230,8 +238,9 @@ set splitbelow
 set splitright
 
 " Set tab colours
-hi TabLineFill ctermfg=Red ctermbg=238
-hi TabLine ctermfg=White ctermbg=235
+hi TabLineFill ctermfg=Red ctermbg=240
+hi TabLine cterm=none ctermfg=234 ctermbg=240
+hi TabLineSel ctermfg=white ctermbg=234
 
 " Search
 set ignorecase " Case insensitive search
@@ -245,19 +254,44 @@ set undodir=$HOME/.vim/undo " Where to save histories
 set undolevels=1000         " How many undos
 set undoreload=10000        " Number of lines to save
 
-" Tweak theme
-hi Normal ctermbg=none
+" colorscheme solarized
+" set background=light
+" Switch on highlighting the last used search pattern.
+" if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
+"   colorscheme solarized
+"   set hlsearch
+" endif
+
+" hi Normal ctermbg=none
+" hi NonText ctermbg=none
+
+" Show spelling mistakes
+hi SpellBad ctermfg=magenta
+
+" " Tweak theme
 hi javaScriptBraces cterm=none ctermbg=none ctermfg=darkcyan
 hi javaScriptParens cterm=none ctermbg=none ctermfg=darkcyan
-hi Operator cterm=none ctermbg=none ctermfg=cyan
+" syn match parens /[(){}]/
+" hi parens ctermfg=magenta
+" autocmd BufRead,BufNewFile * syn match commas /[(){}]/ | hi parens ctermfg=darkmagenta
+" autocmd BufRead,BufNewFile * syn match parens /:,/ | hi parens ctermfg=darkmagenta
+" " hi jsOperator ctermfg=blue
+hi Operator cterm=none ctermbg=none ctermfg=blue
 hi MatchParen cterm=none ctermbg=none ctermfg=darkmagenta
-hi CursorLine ctermbg=234
+hi jsParen ctermfg=175
+hi jsNoise ctermfg=cyan
+hi jsVariableDef ctermfg=white
+hi jsObject ctermfg=blue
+syn keyword temp ","
+hi temp ctermfg=red
+hi IndentGuidesOdd  guibg=darkgrey ctermbg=235
+hi IndentGuidesEven guibg=black ctermbg=234
 
 " Color column
 " let &colorcolumn=join(range(81,999),",")
 " highlight ColorColumn ctermbg=235 guibg=#2c2d27
 " let &colorcolumn="80,".join(range(120,999),",")
-highlight ColorColumn ctermbg=brown
+highlight ColorColumn ctermbg=236
 call matchadd('ColorColumn', '\(\%80v\|\%100v\)', 100)  " Show +80 as coloured
 
 runtime macros/matchit.vim
