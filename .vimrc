@@ -1,46 +1,38 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#begin('~/.vim/plugged')
 
-" Mappings
-let mapleader=","
-let g:mapleader = ","
-
-Plugin 'VundleVim/Vundle.vim' " let Vundle manage Vundle, required
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-commentary'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'rking/ag.vim'
-Plugin 'tpope/vim-sensible' " Be sensible
-Plugin 'sheerun/vim-polyglot' " Language packs
-Plugin 'vim-scripts/ReplaceWithRegister' " (eg. griw)
-Plugin 'kana/vim-textobj-user'
-Plugin 'kana/vim-textobj-lastpat' " Search reuslts as text objects (eg. di/)
-Plugin 'kana/vim-textobj-indent'  " Motions on similar indents of text (eg. <<ii, <<iI)
+Plug 'VundleVim/Vundle.vim' " let Vundle manage Vundle, required
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'rking/ag.vim'
+Plug 'tpope/vim-sensible' " Be sensible
+Plug 'sheerun/vim-polyglot' " Language packs
+Plug 'vim-scripts/ReplaceWithRegister' " (eg. griw)
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-lastpat' " Search reuslts as text objects (eg. di/)
+Plug 'kana/vim-textobj-indent'  " Motions on similar indents of text (eg. <<ii, <<iI)
 
 " NERDTree
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeShowHidden = 1
 
 " CtrlP
-Plugin 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_working_path_mode = 'rw'
 
 " Ctags
-Plugin 'ludovicchabant/vim-gutentags'
+Plug 'ludovicchabant/vim-gutentags'
 let g:gutentags_cache_dir = '/tmp'
 
 " Airline
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 let g:Powerline_symbols = 'fancy'
 let g:airline_powerline_fonts = 1
 let g:airline_theme='powerlineish'
@@ -55,31 +47,31 @@ let g:airline#extensions#default#section_truncate_width = {
       \ }
 
 " Better searching
-Plugin 'mileszs/ack.vim'
+Plug 'mileszs/ack.vim'
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
 " Tagbar for viewing file overview
-Plugin 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 noremap <leader>t :TagbarToggle<cr>
 
 " Js syntax
 " Plugin 'isRuslan/vim-es6'
-Plugin 'elzr/vim-json'
-Plugin 'pangloss/vim-javascript'
+Plug 'elzr/vim-json'
+Plug 'pangloss/vim-javascript'
 " Plugin 'jelera/vim-javascript'
 " autocmd FileType javascript setlocal makeprg=standard
 
 " Easily move blocks of text
-Plugin 'matze/vim-move'
+Plug 'matze/vim-move'
 vmap <C-k> <Plug>MoveBlockUp
 vmap <C-j> <Plug>MoveBlockDown
 nmap <A-j> <Plug>MoveLineDown
 nmap <A-k> <Plug>MoveLineUp
 
 " Gitgutter
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 " let g:move_map_keys = 0
 " let g:gitgutter_sign_column_always = 2
 " let g:gitgutter_map_keys = 1
@@ -91,14 +83,14 @@ let g:gitgutter_sign_removed = '⇐'
 let g:gitgutter_sign_modified_removed = '⇎'
 
 " Move around super easily
-Plugin 'Lokaltog/vim-easymotion'
+Plug 'Lokaltog/vim-easymotion'
 let g:EasyMotion_leader_key = '<Leader>e'
 map <Space><Space> <Plug>(easymotion-bd-w)
 " nmap s <Plug>(easymotion-s2)
 " nmap t <Plug>(easymotion-t2)
 
 " Visually display indents
-Plugin 'nathanaelkane/vim-indent-guides'
+Plug 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_auto_colors = 1
 " autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=darkgrey ctermbg=233
 " autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=black ctermbg=232
@@ -106,16 +98,16 @@ let g:indent_guides_enable_on_vim_startup = 1
 " let g:indent_guides_guide_size = 1 k
 
 " SnipMate
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
 autocmd Filetype snippets setlocal expandtab tabstop=4 shiftwidth=4
 
 " Auto wordwrap with some file types
 au BufRead,BufNewFile *.md setlocal wrap
 
 " Syntastic
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 let g:syntastic_javascript_checkers = ['standard']
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
@@ -126,13 +118,11 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 " Themes
-Plugin 'morhetz/gruvbox'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'NLKNguyen/papercolor-theme'
+Plug 'morhetz/gruvbox'
+Plug 'altercation/vim-colors-solarized'
+Plug 'NLKNguyen/papercolor-theme'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()
 
 " using Source Code Pro
 " set anti enc=utf-8
@@ -205,8 +195,9 @@ let g:vim_json_syntax_conceal = 0
 colorscheme gruvbox
 set background=dark
 let g:gruvbox_italicize_comments = 1
-let g:gruvbox_contrast_dark = "hard"
+let g:grupvbox_contrast_dark = "hard"
 let g:indent_guides_auto_colors = 1
+
 " set t_Co=256
 " colorscheme PaperColor
 " set background=dark
@@ -214,7 +205,9 @@ let g:indent_guides_auto_colors = 1
 " colorscheme solarized
 " set background=light
 
-" Bindings
+" Mappings
+let mapleader=","
+let g:mapleader = ","
 noremap <leader>n :NERDTree<cr>
 nnoremap <Leader-p> :CtrlP<CR>:
 nnoremap <Leader>/ :noh<CR><ESC>|
@@ -281,7 +274,7 @@ hi MatchParen cterm=none ctermbg=none ctermfg=darkmagenta
 hi jsParen ctermfg=175
 hi jsNoise ctermfg=cyan
 hi jsVariableDef ctermfg=white
-hi jsObject ctermfg=blue
+hi jsObject ctermfg=173
 syn keyword temp ","
 hi temp ctermfg=red
 hi IndentGuidesOdd  guibg=darkgrey ctermbg=235
