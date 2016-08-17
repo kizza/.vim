@@ -233,7 +233,7 @@ set splitright
 " Set tab colours
 hi TabLineFill ctermfg=Red ctermbg=240
 hi TabLine cterm=none ctermfg=234 ctermbg=240
-hi TabLineSel ctermfg=white ctermbg=234
+hi TabLineSel ctermfg=white ctermbg=235
 
 " Search
 set ignorecase " Case insensitive search
@@ -277,8 +277,8 @@ hi jsVariableDef ctermfg=white
 hi jsObject ctermfg=173
 syn keyword temp ","
 hi temp ctermfg=red
-hi IndentGuidesOdd  guibg=darkgrey ctermbg=235
-hi IndentGuidesEven guibg=black ctermbg=234
+hi IndentGuidesOdd  guibg=darkgrey ctermbg=236
+hi IndentGuidesEven guibg=black ctermbg=235
 
 " Color column
 " let &colorcolumn=join(range(81,999),",")
