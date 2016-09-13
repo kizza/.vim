@@ -3,11 +3,15 @@ filetype off                  " required
 
 call plug#begin('~/.vim/plugged')
 
+
 Plug 'VundleVim/Vundle.vim' " let Vundle manage Vundle, required
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'ervandew/supertab'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-abolish'
 Plug 'rking/ag.vim'
 Plug 'tpope/vim-sensible' " Be sensible
 Plug 'sheerun/vim-polyglot' " Language packs
@@ -26,16 +30,16 @@ let g:NERDTreeShowHidden = 1
 Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_working_path_mode = 'rw'
 
-" Ctags
-Plug 'ludovicchabant/vim-gutentags'
-let g:gutentags_cache_dir = '/tmp'
+" " Ctags
+" Plug 'ludovicchabant/vim-gutentags'
+" let g:gutentags_cache_dir = '/tmp'
 
 " Airline
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:Powerline_symbols = 'fancy'
 let g:airline_powerline_fonts = 1
-let g:airline_theme='powerlineish'
+" let g:airline_theme='powerlineish'
 let g:airline#extensions#default#section_truncate_width = {
       \  'b': 90,
       \  'w': 150,
@@ -107,20 +111,28 @@ autocmd Filetype snippets setlocal expandtab tabstop=4 shiftwidth=4
 au BufRead,BufNewFile *.md setlocal wrap
 
 " Syntastic
+" Plug 'scrooloose/syntastic', { 'on' : 'BufWritePre' }
 Plug 'scrooloose/syntastic'
 let g:syntastic_javascript_checkers = ['standard']
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_style_error_symbol = '✠✠'
+let g:syntastic_warning_symbol = '∆∆'
+let g:syntastic_style_warning_symbol = '✗'
 
+if exists('plugins')
+endif
 " Themes
 Plug 'morhetz/gruvbox'
 Plug 'altercation/vim-colors-solarized'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'rakr/vim-one'
 
 call plug#end()
 
@@ -143,6 +155,7 @@ set shiftwidth=2
 set foldlevelstart=99         " Expand all folds by default.
 set backspace=2
 set smartcase                 " Infer uppercase search when uppercase used
+set noeol
 " set encoding=utf-8
 
 " Useful mappings for managing tabs
@@ -191,12 +204,14 @@ endif
 " Don't hide json quotes
 let g:vim_json_syntax_conceal = 0
 
-" Set theme
-colorscheme gruvbox
-set background=dark
-let g:gruvbox_italicize_comments = 1
-let g:grupvbox_contrast_dark = "hard"
-let g:indent_guides_auto_colors = 1
+" " Set theme
+" colorscheme gruvbox
+" set background=dark
+" let g:gruvbox_italicize_comments = 1
+" let g:grupvbox_contrast_dark = "hard"
+" let g:indent_guides_auto_colors = 1
+
+colorscheme solarized
 
 " set t_Co=256
 " colorscheme PaperColor
@@ -205,14 +220,17 @@ let g:indent_guides_auto_colors = 1
 " colorscheme solarized
 " set background=light
 
-" Mappings
+" Mappings (shortcuts)
 let mapleader=","
 let g:mapleader = ","
 noremap <leader>n :NERDTree<cr>
+noremap <leader>f :NERDTreeFind<cr>
 nnoremap <Leader-p> :CtrlP<CR>:
 nnoremap <Leader>/ :noh<CR><ESC>|
 map <Leader>sw :w<Cr>
 nmap <leader>v :tabedit $MYVIMRC<CR>
+nmap cp :let @+ = expand("%")<CR>
+nmap <leader>it :tabedit %<CR>
 
 " Window
 syntax enable       " Syntax highlighting
@@ -230,10 +248,12 @@ set autoindent
 set splitbelow
 set splitright
 
-" Set tab colours
-hi TabLineFill ctermfg=Red ctermbg=240
-hi TabLine cterm=none ctermfg=234 ctermbg=240
-hi TabLineSel ctermfg=white ctermbg=235
+" " Set tab colours
+" hi TabLineFill ctermfg=Red ctermbg=240
+" hi TabLine cterm=none ctermfg=234 ctermbg=240
+" hi TabLineSel cterm=none ctermfg=white ctermbg=235
+
+" hi TabLineSel cterm=none
 
 " Search
 set ignorecase " Case insensitive search
@@ -262,6 +282,7 @@ set undoreload=10000        " Number of lines to save
 hi SpellBad ctermfg=magenta
 
 " " Tweak theme
+if exists('no')
 hi javaScriptBraces cterm=none ctermbg=none ctermfg=darkcyan
 hi javaScriptParens cterm=none ctermbg=none ctermfg=darkcyan
 " syn match parens /[(){}]/
@@ -279,12 +300,14 @@ syn keyword temp ","
 hi temp ctermfg=red
 hi IndentGuidesOdd  guibg=darkgrey ctermbg=236
 hi IndentGuidesEven guibg=black ctermbg=235
+endif
 
 " Color column
 " let &colorcolumn=join(range(81,999),",")
 " highlight ColorColumn ctermbg=235 guibg=#2c2d27
 " let &colorcolumn="80,".join(range(120,999),",")
-highlight ColorColumn ctermbg=236
+hi MatchParen ctermbg=110
+hi ColorColumn ctermbg=236
 call matchadd('ColorColumn', '\(\%80v\|\%100v\)', 100)  " Show +80 as coloured
 
 runtime macros/matchit.vim
